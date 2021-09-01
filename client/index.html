@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CSECS!</h1>
+    <button type="submit" onclick="postData()" value="postData">Post Data</button>
+    <button type="submit" onclick="getData()" value="getData">Get Data</button>
+    <div id="results"></div>
+    <script>
+        let results = document.getElementById("results");
+        
+
+        const getData = async ()=>{
+            const res = await fetch("http://localhost:8000/getData")
+            try {
+                const data = await res.json();
+                console.log(`GETDATA ******* ${data[0].picsa}`);
+                results.innerHTML = data[0].picsa;
+
+            } catch(error) {
+                console.log("error", error);
+            }
+        }
+
+        const postData = async (url = '', data = {})=>{
+            console.log(`post data = ${data}`);
+            const response = await fetch(url, {
+            method: 'POST', 
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            // Body data type must match "Content-Type" header        
+            body: JSON.stringify(data), 
+            });
+
+            try {
+                const newData = await response.json();
+                console.log(newData);
+                return newData;
+            }catch(error) {
+            console.log("error", error);
+            }
+        }
+
+        postData('http://localhost:8000/postData', {name: 'Dani'} );
+    </script>
+</body>
+</html>
