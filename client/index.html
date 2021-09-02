@@ -8,47 +8,46 @@
 </head>
 <body>
     <h1>CSECS!</h1>
+
+    <input type="text" name="city" id="city" placeholder="city"/>
+    <input type="text" name="country" id="country" placeholder="country"/>
+    <button onclick="formHandler()">Send Form Data</button>
+
+    <hr>
+
     <button type="submit" onclick="postData()" value="postData">Post Data</button>
     <button type="submit" onclick="getData()" value="getData">Get Data</button>
     <div id="results"></div>
+
     <script>
-        let results = document.getElementById("results");
-        
+        const results = document.getElementById("results");
 
-        const getData = async ()=>{
-            const res = await fetch("http://localhost:8000/getData")
-            try {
-                const data = await res.json();
-                console.log(`GETDATA ******* ${data[0].picsa}`);
-                results.innerHTML = data[0].picsa;
-
-            } catch(error) {
-                console.log("error", error);
-            }
-        }
-
-        const postData = async (url = '', data = {})=>{
-            console.log(`post data = ${data}`);
-            const response = await fetch(url, {
-            method: 'POST', 
-            credentials: 'same-origin',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            // Body data type must match "Content-Type" header        
-            body: JSON.stringify(data), 
+        const getData = () => {
+            fetch("http://localhost:8000/getData").then(res => {
+                return res.json();
+            }).then(data => {
+                results.innerHTML = JSON.stringify(data);
             });
-
-            try {
-                const newData = await response.json();
-                console.log(newData);
-                return newData;
-            }catch(error) {
-            console.log("error", error);
-            }
         }
 
-        postData('http://localhost:8000/postData', {name: 'Dani'} );
+        const postData = (url = 'http://localhost:8000/postData', data = {}) => {
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).finally(data => console.log());
+        }
+
+        const formHandler = () => {
+            const cityName = document.getElementById('city').value;
+            const countryName = document.getElementById('country').value;
+            postData('http://localhost:8000/postData', {city: cityName, country: countryName});
+            console.log(postData());
+        }
     </script>
 </body>
+
 </html>
