@@ -1,3 +1,5 @@
+// We load the necessary user names and API keys from our server
+
 function getAccessUser(destination, arrivalDate, leaveDate) {
     
     new Promise(function(resolve, reject) {

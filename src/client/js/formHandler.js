@@ -1,3 +1,5 @@
+// We handle the form inputs in this function
+
 function formHandler(event) {
     event.preventDefault();
 

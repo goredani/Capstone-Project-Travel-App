@@ -1,11 +1,17 @@
+// We calculate the different dates for the trip
+
 const getDate = (lat, lng, cityName, arrivalDate, leaveDate, weatherAcc, imageAcc) => {
     
     const travelDate = new Date(arrivalDate);
     const exitDate = new Date(leaveDate);
     const today = new Date();
 
+    // Calculating the length of the trip
+
     let stayTime = (Math.abs(exitDate-travelDate))/(1000 * 3600 * 24);
     
+    // Calculating the days remaining to the trip
+
     let difference= Math.abs(travelDate-today);
 
     if (today > travelDate) {
@@ -13,6 +19,7 @@ const getDate = (lat, lng, cityName, arrivalDate, leaveDate, weatherAcc, imageAc
     } else {
         let days = difference/(1000 * 3600 * 24);
         
+        // Based on the remaining days we decide which API we should load from Weatherbit
     
         if (days > 7) {
             

@@ -1,4 +1,4 @@
-
+// Based on the destination we check with Geonames if the name is valid and we retrive the coordinates and other information for the destination
  
  let geoService = async (destination, arrivalDate, leaveDate, geoAcc, weatherAcc, imageAcc) => {
 

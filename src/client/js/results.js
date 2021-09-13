@@ -1,3 +1,4 @@
+// In the last step we add everything to the DOM.
 
 function results(cityName, temperature, image, arrivalDate, leaveDate, days, stayTime) {
 

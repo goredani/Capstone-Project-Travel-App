@@ -1,3 +1,5 @@
+// Based on the destination we retrive an image
+
 function pixaBayService(cityName, temperature, arrivalDate, leaveDate, days, stayTime, imageAcc) {
     
     new Promise(function(resolve, reject) {
@@ -6,6 +8,7 @@ function pixaBayService(cityName, temperature, arrivalDate, leaveDate, days, sta
             try {
                 let data = await res.json();
                 if(data.hits == 0) {
+                    // We load a placeholder image if we couldn't find anything
                     data = {"hits":[{"webformatURL":"https://via.placeholder.com/640"}]};
                     const image = data.hits[0].webformatURL;
                     Client.results(cityName, temperature, image, arrivalDate, leaveDate, days, stayTime);

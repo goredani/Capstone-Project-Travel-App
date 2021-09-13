@@ -1,3 +1,5 @@
+// Based on the location and the time we retrive the weather information for the location
+
 function weatherService(lat, lng, cityName, weatherURL, arrivalDate, leaveDate, days, stayTime, weatherAcc, imageAcc) {
     
     new Promise(function(resolve, reject) {

@@ -21,7 +21,7 @@ app.get('/',function (req, res) {
     res.sendFile('/dist/index.html')
 })
 
-
+// These endponts will serve the proper user name or API key
 
 app.get('/geoUser', function (req, res) {
     res.send(access.geoUser)
@@ -33,18 +33,11 @@ app.get('/pixaBayAPIKey', function (req, res) {
     res.send(access.pixaBayAPIKey)
 })
 
+// We store the user names and API keys in an env file
+
 const access = {
     geoUser: `${process.env.GEO_ID}`,
     WeatherAPIKey: `${process.env.WEATHER_KEY}`,
     pixaBayAPIKey: `${process.env.IMAGE_KEY}`
 }
 
-
-
-
-// app.post('/postData', postData )
-
-// function postData (req, res){
-//     console.log(req.body)
-//     data.push(req.body)
-//  }
