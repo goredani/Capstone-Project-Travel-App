@@ -1,6 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express()
 
@@ -19,19 +21,25 @@ app.get('/',function (req, res) {
     res.sendFile('/dist/index.html')
 })
 
-const geoUser = "ovdaldk";
-const WeatherAPIKey = "a7b7cbe48f60468390559450561794fc";
-const pixaBayAPIKey = "22453719-d2ea24c0db6da3bbfeb9ff901&q=";
+
 
 app.get('/geoUser', function (req, res) {
-    res.send(geoUser)
+    res.send(access.geoUser)
 })
 app.get('/WeatherAPIKey', function (req, res) {
-    res.send(WeatherAPIKey)
+    res.send(access.WeatherAPIKey)
 })
 app.get('/pixaBayAPIKey', function (req, res) {
-    res.send(pixaBayAPIKey)
+    res.send(access.pixaBayAPIKey)
 })
+
+const access = {
+    geoUser: `${process.env.GEO_ID}`,
+    WeatherAPIKey: `${process.env.WEATHER_KEY}`,
+    pixaBayAPIKey: `${process.env.IMAGE_KEY}`
+}
+
+
 
 
 // app.post('/postData', postData )

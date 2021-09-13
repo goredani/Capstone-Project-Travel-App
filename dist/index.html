@@ -1,40 +1,7 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Document</title><script defer="defer" src="main.js"></script><link href="main.css" rel="stylesheet"></head><body><h1>CSECS!</h1><input name="city" id="city" placeholder="city"/> <input name="country" id="country" placeholder="country"/> <button onclick="formHandler()">Send Form Data</button><hr><button type="submit" onclick="getApi1()" value="getApi1">Get API 1</button> <button type="submit" onclick="getApi2()" value="getApi2">Get API 2</button> <button type="submit" onclick="getApi3()" value="getApi3">Get API 3</button> <button type="submit" onclick="getApi4()" value="getApi4">Get API 4</button><div id="results"></div><script>const results = document.getElementById("results");
-
-        const getApi1 = () => {
-            fetch("http://localhost:8088/getApi1").then(res => {
-                return res.json();
-            }).then(data => {
-                results.innerHTML = JSON.stringify(data);
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Document</title><script defer="defer" src="main.js"></script><link href="main.css" rel="stylesheet"></head><body><div class="container"><header>Capstone - Travel App</header><main><section class="entry"><form action="#" onsubmit="return Client.formHandler(event)"><div><label for="name">Enter your destination:</label> <input name="destination" id="destination" placeholder="New York" required/></div><div><label for="arrivalDate">Your arrival date:</label> <input type="date" id="arrivalDate" name="arrivalDate" placeholder="10/21/2021" required/></div><div><label for="leaveDate">Your leaving date:</label> <input type="date" id="leaveDate" name="leaveDate" placeholder="10/30/2021" required/></div><div><input type="submit" id="generate" name="submit" value="Add Trip" onclick="return Client.formHandler(event)" onsubmit="return formHandler(event)"></div></form></section><div id="entryHolder"></div></main><footer>Capstone - Travel App</footer></div><script>// Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
             });
-        }
-
-        const getApi2 = () => {
-            fetch("http://localhost:8088/getApi2").then(res => {
-                return res.json();
-            }).then(data => {
-                results.innerHTML = JSON.stringify(data);
-            });
-        }
-
-        const getApi3 = () => {
-            fetch("http://localhost:8088/getApi3").then(res => {
-                return res.json();
-            }).then(data => {
-                results.innerHTML = JSON.stringify(data);
-            });
-        }
-
-        const getApi4 = () => {
-            fetch("http://localhost:8088/getApi4").then(res => {
-                return res.json();
-            }).then(data => {
-                results.innerHTML = JSON.stringify(data);
-            });
-        }
-
-   
-        // const formHandler = () => {
-        //     const cityName = document.getElementById('city').value;
-        //     const countryName = document.getElementById('country').value;
-        //     postData('http://localhost:8000/postData', {city: cityName, country: countryName});
-        // }</script></body></html>
+        }</script></body></html>

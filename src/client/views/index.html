@@ -7,25 +7,48 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>CSECS!</h1>
-
-    <hr>
-
-    <button type="submit" onclick="Client.geoService()" value="getApi1">GeoService</button>
-    <button type="submit" onclick="Client.pixaBayAPIKey()" value="getApi2">Get Pixa Api Key</button>
-    <button type="submit" onclick="Client.WeatherAPIKey()" value="getApi3">Get Weather API Key</button>
-    <div id="results"></div>
-
+    <div class="container">
+        <header>Capstone - Travel App</header>
+        <main>
+            <section class="entry">
+                <form action="#" onsubmit="return Client.formHandler(event)">
+                    <div>
+                        <label for="name">Enter your destination: </label>
+                        <input type="text" name="destination" id="destination" placeholder="New York" required /> 
+                    </div>
+                    
+                    <div>
+                        <label for="arrivalDate">Your arrival date:</label>
+                        <input type="date" id="arrivalDate" name="arrivalDate" placeholder="10/21/2021" required />
+                    </div>
+                    
+                    <div>
+                        <label for="leaveDate">Your leaving date:</label>
+                        <input type="date" id="leaveDate" name="leaveDate" placeholder="10/30/2021" required />
+                    </div>
+                    <div>
+                        <input type="submit" id="generate" name="submit" value="Add Trip" onclick="return Client.formHandler(event)" onsubmit="return formHandler(event)">
+                    </div>
+                    
+                </form>
+            </section>
+            
+            <div id="entryHolder">
+                
+            </div>
+        </main>
+        <footer>Capstone - Travel App</footer>
+    </div>
     <script>
-        
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+       </script>
 
-   
-        // const formHandler = () => {
-        //     const cityName = document.getElementById('city').value;
-        //     const countryName = document.getElementById('country').value;
-        //     postData('http://localhost:8000/postData', {city: cityName, country: countryName});
-        // }
-    </script>
 </body>
 
 </html>

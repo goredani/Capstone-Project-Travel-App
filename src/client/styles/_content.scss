@@ -1,0 +1,114 @@
+main{
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.entry {
+    width: 100%;
+    height: 80px;
+    background-image: url("../img/sunrise.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    padding: 24px 0 24px 0;
+    justify-content: space-evenly;
+    font-family: 'Syne', sans-serif;
+    border-radius: 8px;
+    color: white;
+}
+
+.entry form {
+    width: 80%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+}
+
+.entry form input {
+    height: 28px;
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+}
+
+.entry form div {
+    margin: 16px;
+}
+
+.entry form #generate {
+    font-family: 'Syne', sans-serif;
+    border-radius: 8px;
+    border: 0px;
+    width: 120px;
+    height: 40px;
+    background-color: #39ff14;
+    color: blue;
+    margin-top: 8px;
+}
+
+
+
+.entry form #generate:hover {
+    color: white;
+    background-color: #232E45;
+    cursor: pointer;
+}
+
+#entryHolder {
+    width: 100%;
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.card {
+    width:45%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    background-color: #EFF0F7;
+    border-radius: 8px;
+    color: #111236;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    box-shadow:  19px 19px 39px #bebebe,
+             -19px -19px 39px #ffffff;
+}
+
+.card img{
+    margin-top: 60px;
+    margin-left: 24px;
+    width: 320px;
+    height: 240px;
+    background-color: white;
+    padding: 12px;
+    transform: rotate(12deg);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    object-fit: cover;
+}
+
+
+.card .title {
+    max-width: 100%;
+    font-size: 40px;
+    font-family: 'Syne', sans-serif;
+    color: rgba(212,76,188,1);
+    margin-bottom: 24px;  
+}
+
+.card .content {
+    display: flex;
+    flex-direction: row;
+}
+
+.card .content .text {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+}
