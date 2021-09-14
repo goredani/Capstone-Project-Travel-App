@@ -27,7 +27,7 @@ module.exports = {
     ],
     output: {
         libraryTarget: 'var',
-        library: 'Clientdsa
+        library: 'Client'
     }
 }
 

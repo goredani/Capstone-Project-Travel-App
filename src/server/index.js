@@ -36,8 +36,8 @@ app.get('/pixaBayAPIKey', function (req, res) {
 // We store the user names and API keys in an env file
 
 const access = {
-    geoUser: `${process.env.GEO_ID}`,
-    WeatherAPIKey: `${process.env.WEATHER_KEY}`,
-    pixaBayAPIKey: `${process.env.IMAGE_KEY}`
+    geoUser: "ovdaldk",
+    WeatherAPIKey: "a7b7cbe48f60468390559450561794fc",
+    pixaBayAPIKey: "22453719-d2ea24c0db6da3bbfeb9ff901&q="
 }
 
