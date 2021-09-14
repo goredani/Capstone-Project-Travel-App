@@ -33,11 +33,17 @@ app.get('/pixaBayAPIKey', function (req, res) {
     res.send(access.pixaBayAPIKey)
 })
 
+app.get('/test', function (req, res) {
+    res.send(access.test)
+})
+
 // We store the user names and API keys in an env file
 
 const access = {
     geoUser: "ovdaldk",
     WeatherAPIKey: "a7b7cbe48f60468390559450561794fc",
-    pixaBayAPIKey: "22453719-d2ea24c0db6da3bbfeb9ff901&q="
+    pixaBayAPIKey: "22453719-d2ea24c0db6da3bbfeb9ff901&q=",
+    test: "pass!"
 }
 
+module.exports = app;
